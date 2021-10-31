@@ -4,6 +4,7 @@ jobs:
     runs-on: ubuntu-latest
     name: ci job
     steps:
+      - uses: actions/checkout@v1
       - name: docker job
         id: hello
         uses: ./action.yaml
