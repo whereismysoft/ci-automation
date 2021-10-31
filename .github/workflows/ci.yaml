@@ -7,4 +7,4 @@ jobs:
       - uses: actions/checkout@v1
       - name: docker job
         working-directory: ./
-        uses: Dockerfile
+        run: docker build -t node-try .
