@@ -9,6 +9,6 @@ jobs:
       runs:
         using: 'docker'
         image: 'Dockerfile'
-      steps:
-        - run: docker build . -f Dockerfile
+    steps:
+      - run: docker build . -f Dockerfile
       
