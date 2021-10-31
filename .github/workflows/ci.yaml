@@ -3,8 +3,13 @@ on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x]
-    steps:
-      - run: docker build ./ -f Dockerfile
+    # strategy:
+    #   matrix:
+    #     node-version: [14.x]
+  steps:
+  - name: Checkout
+  - name: Prepare
+      with:
+        context: ./
+        file: ./Dockerfile
+        target: test
