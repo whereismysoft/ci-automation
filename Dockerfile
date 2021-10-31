@@ -2,7 +2,8 @@ FROM node:14
 
 COPY ./ci-source .
 
-CMD ["node", "index.js", "echo", "33333"]
+# CMD ["node", "index.js", "echo", "33333"]
+ENTRYPOINT ["/entrypoint.sh"]
 
 # RUN node index.js
 
