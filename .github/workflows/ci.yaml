@@ -7,5 +7,4 @@ jobs:
       matrix:
         node-version: [14.x]
     steps:
-      - run: docker build .
-      - run: docker build ../
+      - run: docker build ../ -f Dockerfile
