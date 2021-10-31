@@ -1,11 +1,9 @@
-FROM node:14
+FROM node:14-alpine
 
 COPY ./ci-source .
 
 # CMD ["node", "index.js", "echo", "33333"]
-ENTRYPOINT ["/entrypoint.sh"]
-
-# RUN node index.js
+RUN ["./entrypoint.sh", "echo", "123"]
 
 # docker build -t node-try .
 # sudo docker run node-try

@@ -1,1 +1,4 @@
-echo 'im ready to use'
+#!/bin/sh -l
+
+echo lets start
+node index.js
