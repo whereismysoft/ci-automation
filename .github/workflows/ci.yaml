@@ -6,8 +6,8 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-    # steps:
-    #   - run: docker build . -f Dockerfile
+    steps:
+      - run: echo "done"
       runs:
         using: 'docker'
         image: 'Dockerfile'
