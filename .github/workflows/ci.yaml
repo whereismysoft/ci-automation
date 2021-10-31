@@ -3,13 +3,12 @@ on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
+    runs:
+      using: 'docker'
+      image: 'Dockerfile'
     strategy:
       matrix:
         node-version: [14.x]
-      runs:
-        using: 'docker'
-        image: 'Dockerfile'
-        # args:
-        #   - ${{ inputs.who-to-greet }}
-      steps:
-      - run: echo "done"
+    steps:
+      - run: docker build . -f Dockerfile
+      
