@@ -1,5 +1,7 @@
-FROM node
+FROM node:14
 
 COPY ./ci-source .
 
-RUN node index.js
+RUN echo "Hi from docker"
+
+# RUN node index.js

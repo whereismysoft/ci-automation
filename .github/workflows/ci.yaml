@@ -1,15 +1,8 @@
-name: ci-instructions
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  ci-job:
     runs-on: ubuntu-latest
-    # strategy:
-    #   matrix:
-    #     node-version: [14.x]
-  steps:
-    - name: Checkout
-    - name: Prepare
-      with:
-        context: ./
-        file: ./Dockerfile
-        target: test
+    name: ci-job
+    steps:
+      - name: action step
+        uses: action@v1
