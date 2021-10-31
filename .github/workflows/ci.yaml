@@ -6,5 +6,10 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x]
-    steps:
-      - run: docker build . -f Dockerfile
+    # steps:
+    #   - run: docker build . -f Dockerfile
+      runs:
+        using: 'docker'
+        image: 'Dockerfile'
+        # args:
+        #   - ${{ inputs.who-to-greet }}
