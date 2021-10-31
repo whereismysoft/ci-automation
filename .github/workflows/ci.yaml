@@ -1,8 +1,9 @@
 on: [push]
 jobs:
-  ci-job:
+  ci-tasks:
     runs-on: ubuntu-latest
-    name: ci-job
+    name: ci job
     steps:
-      - name: action step
-        uses: action@v1
+      - name: docker job
+        id: hello
+        uses: ./action.yaml
