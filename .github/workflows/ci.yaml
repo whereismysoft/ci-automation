@@ -6,5 +6,5 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: docker job
-        id: hello
-        uses: ./.github/actions/action.yaml
+        working-directory: ./app
+        uses: ./action.yaml
