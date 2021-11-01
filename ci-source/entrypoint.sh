@@ -1,6 +1,5 @@
 #!/bin/sh -l
 
-echo lets start
-echo $NODE_AUTH_TOKEN
+echo creating release $RELEASE_VERSION
 
 node ./ci-source/index.js
