@@ -23,3 +23,8 @@ jobs:
       - name: release script
         working-directory: ./
         run: ./ci-source/entrypoint.sh
+        env:
+          NODE_AUTH_TOKEN: "SIMPLE AUTH TOKEN"
+        
+        # git tag -a v0.0.2 -m "upd release action"
+        # git push origin v0.0.2
