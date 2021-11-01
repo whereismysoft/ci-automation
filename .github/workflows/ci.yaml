@@ -1,10 +1,25 @@
-on: [push]
+# on: [push]
+# jobs:
+#   ci-tasks:
+#     runs-on: ubuntu-latest
+#     name: ci job
+#     steps:
+#       - uses: actions/checkout@v1
+#       - name: docker job
+#         working-directory: ./
+#         run: docker build -t node-try .
+
+on: 
+  push:
+    tags: 
+      - 'v*'
+
 jobs:
   ci-tasks:
     runs-on: ubuntu-latest
     name: ci job
-    steps:
+    steps: 
       - uses: actions/checkout@v1
-      - name: docker job
+      - name: release script
         working-directory: ./
-        run: docker build -t node-try .
+        run: chmod +x ./ci-source/entrypoint.sh
