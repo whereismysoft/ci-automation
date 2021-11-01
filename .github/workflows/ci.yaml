@@ -24,7 +24,7 @@ jobs:
         working-directory: ./
         run: ./ci-source/entrypoint.sh
         env:
-          NODE_AUTH_TOKEN: "SIMPLE AUTH TOKEN"
+          RELEASE_VERSION: ${{ github.event.release.tag_name }}
         
         # git tag -a v0.0.2 -m "upd release action"
         # git push origin v0.0.2
