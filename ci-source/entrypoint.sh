@@ -1,4 +1,5 @@
 #!/bin/sh -l
 
 echo lets start
-node index.js
+
+node ./ci-source/index.js
