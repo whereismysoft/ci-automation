@@ -27,11 +27,13 @@ if [ $? -eq 0 ];
     else echo "\e[91m failed to push CHANGELOG file \033[0m"; exit 1;
 fi
 
-curl -H "X-Org-ID: 6461097"\
+TICKET_URL = $(curl -H "X-Org-ID: 6461097"\
     -H "Authorization: OAuth $TRACKER_ACCESS_TOKEN"\
     -H "Content-Type: application/json"\
     -d "{\"summary\": \"release $RELEASE_VERSION\",\"queue\": {\"id\": \"7\",\"key\": \"TMP\"},\"description\": \"$RELEASE_DESCRIPTION\"}"\
-    -X POST https://api.tracker.yandex.net/v2/issues/ | grep "self"
+    -X POST https://api.tracker.yandex.net/v2/issues/ | grep "self" | head -1)
+
+echo $TICKET_URL
 
 if [ $? -eq 0 ]; 
     then echo "\e[92m tracker ticket successfully created \033[0m"; 
