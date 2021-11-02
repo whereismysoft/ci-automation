@@ -31,14 +31,12 @@ curl -H "X-Org-ID: 6461097"\
     -H "Authorization: OAuth $TRACKER_ACCESS_TOKEN"\
     -H "Content-Type: application/json"\
     -d "{\"summary\": \"release $RELEASE_VERSION\",\"queue\": {\"id\": \"7\",\"key\": \"TMP\"},\"description\": \"$RELEASE_DESCRIPTION\"}"\
-    -X POST https://api.tracker.yandex.net/v2/issues/
+    -X POST https://api.tracker.yandex.net/v2/issues/ | grep "self"
 
 if [ $? -eq 0 ]; 
     then echo "\e[92m tracker ticket successfully created \033[0m"; 
     else echo "\e[91m failed request to tracker \033[0m"; exit 1;
 fi
 
-# Host: https://api.tracker.yandex.net
-# headers
-# Authorization: Bearer <ваш IAM-TOKEN>
-# ya tracker X-Org-ID: = 6461097
+# awk '/iamToken/ { gsub(/[,"]/, " "); print $4}')
+
