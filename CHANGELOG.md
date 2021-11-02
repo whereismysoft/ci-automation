@@ -1,3 +1,4 @@
+v0.0.12 fix changelog releases order
 v0.0.11 fix credentials
 v0.0.10 fix credentials
 v0.0.9 fix request to create ticket
