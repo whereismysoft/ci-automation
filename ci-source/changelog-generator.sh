@@ -2,16 +2,10 @@
 
 echo generating changelog file
 
-# git remote set-url origin https://github.com/whereismysoft/ci-automation.git
-git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/whereismysoft/ci-automation
-
-git config user.name $COMMITTER_NAME
-git config user.email $COMMITTER_EMAIL
-
 echo $(git config --list)
 echo $(git remote -v)
 
-git tag -l --format='%(tag) %(contents)' > CHANGELOG.md
+git tag -l --sort=v:refname --format='%(tag) %(contents)' | awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' > CHANGELOG.md
 
 if [ $? -eq 0 ]; 
     then echo "\e[92m successfully created CHANGELOG file \033[0m";

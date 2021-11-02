@@ -22,16 +22,17 @@ jobs:
       - uses: actions/checkout@v1
       - name: release script
         working-directory: ./
-        run: ./ci-source/entrypoint.sh
+        run: |
+          git config user.name ${{ github.event.head_commit.committer.username }}
+          git config user.email ${{ github.event.head_commit.committer.email }}
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          ./ci-source/entrypoint.sh
         env:
           RELEASE_VERSION: ${{ github.ref_name }}
-          COMMITTER_NAME:  ${{ github.event.head_commit.committer.username }}
-          COMMITTER_EMAIL:  ${{ github.event.head_commit.committer.email }}
           GITHUB_CONTEXT: ${{ toJson(github) }}
           SECRETS_CONTEXT: ${{ toJson(secrets) }}
           CI_ACCESS_TOKEN: ${{ secrets.CI_ACCESS_TOKEN }}
           TRACKER_ACCESS_TOKEN: ${{ secrets.TRACKER_ACCESS_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.github_token }}
         
         # git tag -a v0.0.2 -m "upd release action"
         # git push origin v0.0.2
