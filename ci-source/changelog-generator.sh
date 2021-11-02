@@ -2,6 +2,9 @@
 
 echo generating changelog file
 
+git config --global user.name 'whereismysoft'
+git config --global user.email 'kotovyuriy27@gmail.com'
+
 git tag -l --format='%(tag) %(contents)' > CHANGELOG.md
 
 if [ $? -eq 0 ]; 
