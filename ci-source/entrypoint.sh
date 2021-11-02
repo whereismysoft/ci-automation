@@ -4,11 +4,11 @@ echo ----------------------------------------------------------------
 echo "\e[1m\e[35m release $RELEASE_VERSION"
 echo "\e[0m----------------------------------------------------------------"
 
-# sh ./ci-source/changelog-generator.sh
+sh ./ci-source/changelog-generator.sh
 
-# # if [ $? -eq 1 ]; 
-# #     then echo "\e[91m failed to generate CHANGELOG file \033[0m"; exit 1;
-# # fi
+if [ $? -eq 1 ]; 
+    then echo "\e[91m failed to generate CHANGELOG file \033[0m"; exit 1;
+fi
 
 # node ./ci-source/index.js
 
