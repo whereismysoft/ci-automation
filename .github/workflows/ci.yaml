@@ -25,6 +25,8 @@ jobs:
         run: ./ci-source/entrypoint.sh
         env:
           RELEASE_VERSION: ${{ github.ref_name }}
+          COMMITTER_NAME:  ${{ github.ref_name.event.head_commit.committer.name }}
+          COMMITTER_EMAIL:  ${{ github.ref_name.event.head_commit.committer.email }}
           GITHUB_CONTEXT: ${{ toJson(github) }}
         
         # git tag -a v0.0.2 -m "upd release action"

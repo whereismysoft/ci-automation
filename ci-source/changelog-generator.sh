@@ -2,8 +2,8 @@
 
 echo generating changelog file
 
-git config --global user.name 'whereismysoft'
-git config --global user.email 'kotovyuriy27@gmail.com'
+git config --global user.name $COMMITTER_NAME
+git config --global user.email $COMMITTER_EMAIL
 
 git tag -l --format='%(tag) %(contents)' > CHANGELOG.md
 

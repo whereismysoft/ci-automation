@@ -9,7 +9,9 @@ echo "\e[0m----------------------------------------------------------------"
 
 sh ./ci-source/changelog-generator.sh
 
-echo $?
+if [ $? -eq 1 ]; 
+    then echo "\e[91m failed to generate CHANGELOG file \033[0m"; exit 1;
+fi
 
 # node ./ci-source/index.js
 
