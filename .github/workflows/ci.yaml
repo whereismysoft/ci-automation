@@ -29,6 +29,9 @@ jobs:
           COMMITTER_EMAIL:  ${{ github.event.head_commit.committer.email }}
           GITHUB_CONTEXT: ${{ toJson(github) }}
           SECRETS_CONTEXT: ${{ toJson(secrets) }}
+          CI_ACCESS_TOKEN: ${{ secrets.CI_ACCESS_TOKEN }}
+          TRACKER_ACCESS_TOKEN: ${{ secrets.TRACKER_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.github_token }}
         
         # git tag -a v0.0.2 -m "upd release action"
         # git push origin v0.0.2

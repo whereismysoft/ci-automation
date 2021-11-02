@@ -2,13 +2,14 @@
 
 echo generating changelog file
 
-git remote set-url origin https://github.com/whereismysoft/ci-automation.git
+# git remote set-url origin https://github.com/whereismysoft/ci-automation.git
+git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/whereismysoft/ci-automation
 
 git config user.name $COMMITTER_NAME
 git config user.email $COMMITTER_EMAIL
 
-echo git config --list
-echo git remote -v
+echo $(git config --list)
+echo $(git remote -v)
 
 git tag -l --format='%(tag) %(contents)' > CHANGELOG.md
 
@@ -33,7 +34,7 @@ if [ $? -eq 0 ];
 fi
 
 curl -H "X-Org-ID: 6461097"\
-    -H "Authorization: OAuth AQAAAAA5vX0pAAd6FdJlJbuqckIEifc2pSLKXr4"\
+    -H "Authorization: OAuth $TRACKER_ACCESS_TOKEN"\
     -H "Content-Type: application/json"\
     -d "{\"summary\": \"release $RELEASE_VERSION\",\"queue\": {\"id\": \"7\",\"key\": \"TMP\"},\"description\": \"release $RELEASE_VERSION\"}"\
     -X POST https://api.tracker.yandex.net/v2/issues/
