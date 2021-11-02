@@ -10,6 +10,8 @@ if [ $? -eq 1 ];
     then echo "\e[91m failed to generate CHANGELOG file \033[0m"; exit 1;
 fi
 
+docker build -t node-try:$RELEASE_VERSION .
+
 # node ./ci-source/index.js
 
 # formatting output - shttps://misc.flogisoft.com/bash/tip_colors_and_formatting

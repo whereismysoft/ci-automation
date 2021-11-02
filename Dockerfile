@@ -1,9 +1,13 @@
 FROM node:14-alpine
 
-COPY ./ci-source .
+COPY . .
 
-# CMD ["node", "index.js", "echo", "33333"]
-RUN ["./entrypoint.sh", "echo", "123"]
+RUN ["echo", "HI FROM DOCKER IMAGE! $TICKET_URL"]
+
+# COPY ./ci-source .
+
+# CMD ["node", "index.js"]
+# RUN ["./entrypoint.sh"]
 
 # docker build -t node-try .
 # sudo docker run node-try
