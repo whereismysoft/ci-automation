@@ -25,7 +25,7 @@ jobs:
         run: ./ci-source/entrypoint.sh
         env:
           RELEASE_VERSION: ${{ github.ref_name }}
-          COMMITTER_NAME:  ${{ github.event.head_commit.committer.name }}
+          COMMITTER_NAME:  ${{ github.event.head_commit.committer.username }}
           COMMITTER_EMAIL:  ${{ github.event.head_commit.committer.email }}
           GITHUB_CONTEXT: ${{ toJson(github) }}
         
