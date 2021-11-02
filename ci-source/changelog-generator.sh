@@ -7,6 +7,9 @@ git remote set-url origin https://github.com/whereismysoft/ci-automation.git
 git config user.name $COMMITTER_NAME
 git config user.email $COMMITTER_EMAIL
 
+echo git config --list
+echo git remote -v
+
 git tag -l --format='%(tag) %(contents)' > CHANGELOG.md
 
 if [ $? -eq 0 ]; 
