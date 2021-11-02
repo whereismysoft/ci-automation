@@ -2,10 +2,10 @@
 
 echo generating changelog file
 
-echo $(git config --list)
-echo $(git remote -v)
+CHANGE_LOG_INFO=$(git tag -l --sort=v:refname --format='%(tag) %(contents)' | sed '/^[[:space:]]*$/d')
+RELEASE_DESCRIPTION=$(echo "$CHANGE_LOG_INFO" | tail -n1)
 
-git tag -l --sort=v:refname --format='%(tag) %(contents)' | awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' > CHANGELOG.md
+echo "$CHANGE_LOG_INFO" | awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' > CHANGELOG.md
 
 if [ $? -eq 0 ]; 
     then echo "\e[92m successfully created CHANGELOG file \033[0m";
@@ -30,7 +30,7 @@ fi
 curl -H "X-Org-ID: 6461097"\
     -H "Authorization: OAuth $TRACKER_ACCESS_TOKEN"\
     -H "Content-Type: application/json"\
-    -d "{\"summary\": \"release $RELEASE_VERSION\",\"queue\": {\"id\": \"7\",\"key\": \"TMP\"},\"description\": \"release $RELEASE_VERSION\"}"\
+    -d "{\"summary\": \"release $RELEASE_VERSION\",\"queue\": {\"id\": \"7\",\"key\": \"TMP\"},\"description\": \"$RELEASE_DESCRIPTION\"}"\
     -X POST https://api.tracker.yandex.net/v2/issues/
 
 if [ $? -eq 0 ]; 
