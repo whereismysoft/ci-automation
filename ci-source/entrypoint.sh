@@ -1,23 +1,16 @@
 #!/bin/sh -l
 
+# скрипт должен создавать запись в реестре релизов (Трекер) 
+# и сохранять туда всю нужную информацию: автор и дата релиза (можно взять из тэга), номер версии, changelog
+
 echo ----------------------------------------------------------------
 echo "\e[1m\e[35m release $RELEASE_VERSION"
 echo "\e[0m----------------------------------------------------------------"
 
-echo generating changelog file
+sh ./ci-source/changelog-generator.sh
 
-git tag -l --format='%(tag) %(contents)' > README.md
+echo $?
 
-git add README.md
+# node ./ci-source/index.js
 
-echo commiting change log file
-
-git commit -m "release changelog $RELEASE_VERSION"
-
-echo pushing changelog file to $RELEASE_VERSION
-
-git push origin $RELEASE_VERSION
-
-node ./ci-source/index.js
-
-# https://misc.flogisoft.com/bash/tip_colors_and_formatting
+# formatting output - shttps://misc.flogisoft.com/bash/tip_colors_and_formatting
