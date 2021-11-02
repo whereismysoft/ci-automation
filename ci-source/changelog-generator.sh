@@ -2,6 +2,8 @@
 
 echo generating changelog file
 
+git remote set-url origin https://github.com/whereismysoft/ci-automation.git
+
 git config user.name $COMMITTER_NAME
 git config user.email $COMMITTER_EMAIL
 
