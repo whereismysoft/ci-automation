@@ -1,0 +1,25 @@
+{
+  "name": "ci-automation",
+  "version": "1.0.0",
+  "description": "v0.0.1 added release action",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest --noStackTrace --json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whereismysoft/ci-automation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whereismysoft/ci-automation/issues"
+  },
+  "homepage": "https://github.com/whereismysoft/ci-automation#readme",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
+}
