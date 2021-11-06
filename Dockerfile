@@ -1,8 +1,10 @@
 FROM node:14-alpine
 
+ARG RELEASE_VERSION
+
 COPY . .
 
-RUN ["echo", "HI FROM DOCKER IMAGE! $TICKET_URL"]
+RUN echo "HI FROM DOCKER IMAGE! $RELEASE_VERSION"
 
 # COPY ./ci-source .
 
