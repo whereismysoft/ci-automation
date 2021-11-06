@@ -1,3 +1,10 @@
+v1.1.3 rc2
+v1.1.1 testing release
+v0.9.1 rc1
+v0.1.4 added tests runner
+v0.1.3 added docker image build
+v0.1.2 added docker build image
+v0.1.1 fix bash comment
 v0.1.0 added release script
 v0.0.14 parsing ticket response
 v0.0.13 parse tracker response
